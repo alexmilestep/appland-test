@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Install gems:
+```
+bundle install
+```
+Create database and run migrations:
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
+Start app
+```
+rails s
+```
 
-Things you may want to cover:
+Go to http://localhost:3000/graphiql
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Example query:
+```
+mutation {
+  search(input: {needName: true, packageName: "app/models", eventSql: "SELECT \"categories\".\"id\" FROM \"categories\" WHERE \"categories\".\"read_restricted\" = FALSE" }) {
+    search {
+      status
+      response
+    }
+  }
+}
+```
