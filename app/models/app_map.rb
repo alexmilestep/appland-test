@@ -1,0 +1,2 @@
+class AppMap < ApplicationRecord
+end
